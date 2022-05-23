@@ -9,18 +9,18 @@ import "./todo-elem.styles.css";
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
 	const [readOnlyState, setReadOnlyState] = useState(true);
 
-	const enableEditing = () => {
-		// setReadOnlyState((prevState) => !prevState);
-		setReadOnlyState(false);
-		console.log(readOnlyState);
-	};
-
-	const disableEditing = () => {
-		setReadOnlyState(true);
-	};
-
-	const toggleEditing = () => {
-		setReadOnlyState((prevState) => !prevState);
+	const modifyEditing = (param) => {
+		switch (param) {
+			case true:
+				setReadOnlyState(true);
+				break;
+			case false:
+				setReadOnlyState(false);
+				break;
+			default:
+				setReadOnlyState((prevState) => !prevState);
+				break;
+		}
 	};
 
 	return (
@@ -35,13 +35,13 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 				rows='1'
 				readOnly={readOnlyState}
 				value={description}
-				onDoubleClick={enableEditing}
+				onDoubleClick={() => modifyEditing(false)}
 				onChange={(e) => {
 					editTask(e.target.value, id);
 				}}
-				onBlur={disableEditing}
+				onBlur={() => modifyEditing(true)}
 			></textarea>
-			{readOnlyState ? <BtnEdit toggleEditing={toggleEditing} /> : <BtnCheck toggleEditing={toggleEditing} />}
+			{readOnlyState ? <BtnEdit modifyEditing={modifyEditing} /> : <BtnCheck modifyEditing={modifyEditing} />}
 			<BtnDelete id={id} deleteTask={deleteTask} />
 		</li>
 	);
