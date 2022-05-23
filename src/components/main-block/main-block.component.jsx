@@ -6,6 +6,8 @@ import FilterBlock from "../filter-block/filter-block.component";
 import ClearBlock from "../clear-block/clear-block.component";
 import TodoElem from "../todo-elem/todo-elem.component";
 
+import addAutoResize from "../../addAutoResize";
+
 import "./main-block.styles.css";
 
 const MainBlock = () => {
@@ -22,6 +24,7 @@ const MainBlock = () => {
 	useEffect(() => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 		localStorage.setItem("filter", JSON.stringify(filter));
+		addAutoResize();
 	}, [todos, filter]);
 
 	const addTask = (userInput) => {
@@ -42,7 +45,6 @@ const MainBlock = () => {
 	};
 
 	const clearCompleted = () => {
-		console.log(todos);
 		setTodos([...todos.filter((todo) => todo.completed === false)]);
 	};
 
@@ -79,6 +81,7 @@ const MainBlock = () => {
 		<main className='main'>
 			<InputMainBlock addTask={addTask} />
 			<ul className='todos-wrapper'>{renderFilteredTodos()}</ul>
+			{addAutoResize()}
 			<TodosCounter todos={todos} />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
 			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} />
