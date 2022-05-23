@@ -56,23 +56,27 @@ const MainBlock = () => {
 		setFilter(filterNew);
 	};
 
+	const editTask = (updatedTitle, id) => {
+		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
+	};
+
 	const renderFilteredTodos = () => {
 		// eslint-disable-next-line
 		switch (filter) {
 			case "all":
 				return todos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} />;
+					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
 				});
 			case "active":
 				const activeTodos = [...todos.filter((todo) => todo.completed === false)];
 				return activeTodos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} />;
+					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
 				});
 
 			case "completed":
 				const completedTodos = [...todos.filter((todo) => todo.completed === true)];
 				return completedTodos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} />;
+					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
 				});
 		}
 	};
