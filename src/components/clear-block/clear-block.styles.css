@@ -1,0 +1,23 @@
+.btn-footer {
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: var(--text-color);
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: color 0.3s ease-out;
+	border-bottom: 1px solid transparent;
+}
+
+.btn-footer:active {
+	transform: translateY(2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-all-tasks:hover,
+	.btn-active-tasks:hover,
+	.btn-completed-tasks:hover {
+		opacity: 1;
+	}
+}
