@@ -1,12 +1,26 @@
 import { useState } from "react";
 
+import BtnEdit from "../btn-edit/btn-edit.component";
+import BtnCheck from "../btn-check/btn-check.component";
+import BtnDelete from "../btn-delete/btn-delete.component";
+
 import "./todo-elem.styles.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
 	const [readOnlyState, setReadOnlyState] = useState(true);
 
-	const handleEdit = (e) => {
-		setReadOnlyState(!readOnlyState);
+	const enableEditing = () => {
+		// setReadOnlyState((prevState) => !prevState);
+		setReadOnlyState(false);
+		console.log(readOnlyState);
+	};
+
+	const disableEditing = () => {
+		setReadOnlyState(true);
+	};
+
+	const toggleEditing = () => {
+		setReadOnlyState((prevState) => !prevState);
 	};
 
 	return (
@@ -15,23 +29,20 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
-				id='input-description'
+				id={`input-description-${id}`}
 				className='description'
 				data-autoresize
 				rows='1'
 				readOnly={readOnlyState}
 				value={description}
-				onDoubleClick={handleEdit}
+				onDoubleClick={enableEditing}
 				onChange={(e) => {
 					editTask(e.target.value, id);
 				}}
+				onBlur={disableEditing}
 			></textarea>
-			<button className='btn-edit' id='btn-edit' data-state='closed' onClick={handleEdit}>
-				<i className='far fa-edit'></i>
-			</button>
-			<button className='btn-delete' id='btn-delete' onClick={() => deleteTask(id)}>
-				<i className='fas fa-times'></i>
-			</button>
+			{readOnlyState ? <BtnEdit toggleEditing={toggleEditing} /> : <BtnCheck toggleEditing={toggleEditing} />}
+			<BtnDelete id={id} deleteTask={deleteTask} />
 		</li>
 	);
 };

@@ -105,24 +105,6 @@
 	opacity: 0.5;
 }
 
-.btn-delete,
-.btn-edit {
-	color: var(--text-color);
-}
-
-@media (hover: hover) and (pointer: fine) {
-	.btn-delete:hover,
-	.btn-edit:hover {
-		opacity: 1 !important;
-		transition: opacity 0.3s ease-out;
-		cursor: pointer;
-	}
-}
-
-.btn-edit {
-	font-size: 18px;
-}
-
 .btn-filter,
 .btn-footer {
 	font-size: 18px;
@@ -159,10 +141,4 @@
 	.btn-completed-tasks:hover {
 		opacity: 1;
 	}
-}
-
-.fa-times {
-	font-size: 24px;
-	position: relative;
-	transform: translateY(1px);
 }
