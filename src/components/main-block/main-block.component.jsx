@@ -85,7 +85,6 @@ const MainBlock = () => {
 		<main className='main'>
 			<InputMainBlock addTask={addTask} />
 			<ul className='todos-wrapper'>{renderFilteredTodos()}</ul>
-			{addAutoResize()}
 			<TodosCounter todos={todos} />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
 			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} />

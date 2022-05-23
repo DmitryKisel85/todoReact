@@ -1,3 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,700");
+
+:root {
+	--text-color: #e7f9ff;
+	--input-color: #46549e;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Rubik", sans-serif;
+	font-size: 20px;
+}
+
+body {
+	width: 100%;
+	color: var(--text-color);
+	display: flex;
+	justify-content: center;
+	padding: 0 10px;
+}
+
+button,
+input,
+textarea {
+	border: none;
+	outline: none;
+	appearance: none;
+	background: transparent;
+}
+
+textarea {
+	resize: none;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 60px;
+	text-align: center;
+}
+.header {
+	padding: 35px 0;
+}
+
+.mb {
+	margin-bottom: 15px;
+}
+
+.mt {
+	margin-top: 15px;
+}
+
 .App {
 	background: linear-gradient(to bottom, #46549e, #89cbf0);
 	border-radius: 10px;
@@ -8,4 +61,34 @@
 	flex-direction: column;
 	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 48px;
+	}
+}
+
+@media (max-width: 400px) {
+	.App {
+		width: 100%;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	.header {
+		padding: 25px 0;
+	}
+}
+
+@keyframes opacity {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
 }

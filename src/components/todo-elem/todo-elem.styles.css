@@ -105,40 +105,12 @@
 	opacity: 0.5;
 }
 
-.btn-filter,
-.btn-footer {
-	font-size: 18px;
-	font-weight: 400;
-	text-transform: uppercase;
-	color: var(--text-color);
-	padding: 5px 15px;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: color 0.3s ease-out;
-	border-bottom: 1px solid transparent;
-}
-
-.btn-filter {
-	opacity: 0.5;
-}
-
-.btn-filter_active {
-	opacity: 1;
-}
-
-.btn-footer:active {
-	transform: translateY(2px);
-}
-
-@media (hover: hover) and (pointer: fine) {
-	.btn-clear-all:hover,
-	.btn-clear-completed:hover {
-		outline: 1px solid var(--text-color);
+@media (max-width: 400px) {
+	.todo-item {
+		gap: 10px;
 	}
 
-	.btn-all-tasks:hover,
-	.btn-active-tasks:hover,
-	.btn-completed-tasks:hover {
-		opacity: 1;
+	.description {
+		font-size: 18px;
 	}
 }

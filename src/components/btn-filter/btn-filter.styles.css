@@ -17,3 +17,15 @@
 .btn-filter_active {
 	opacity: 1;
 }
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-filter:hover {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 400px) {
+	.btn-filter {
+		padding: 5px;
+	}
+}

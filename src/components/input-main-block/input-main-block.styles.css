@@ -41,3 +41,22 @@
 	font-size: 20px;
 	opacity: 0.5;
 }
+
+@media (max-width: 400px) {
+	.input-wrapper {
+		margin-bottom: 15px;
+	}
+
+	.input-main {
+		font-size: 22px;
+		padding: 20px 10px;
+	}
+
+	.input-main::placeholder {
+		font-size: 18px;
+	}
+
+	.btn-add svg {
+		margin-right: 10px;
+	}
+}

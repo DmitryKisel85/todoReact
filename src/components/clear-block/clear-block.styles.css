@@ -15,9 +15,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.btn-all-tasks:hover,
-	.btn-active-tasks:hover,
-	.btn-completed-tasks:hover {
-		opacity: 1;
+	.btn-clear-all:hover,
+	.btn-clear-completed:hover {
+		outline: 1px solid var(--text-color);
 	}
 }
