@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import InputMainBlock from "../input-main-block/input-main-block.component";
 import TodosCounter from "../todos-counter/todos-counter.component";
@@ -9,8 +9,20 @@ import TodoElem from "../todo-elem/todo-elem.component";
 import "./main-block.styles.css";
 
 const MainBlock = () => {
-	const [todos, setTodos] = useState([]);
-	const [filter, setFilter] = useState("all");
+	const [todos, setTodos] = useState(() => {
+		const initialValue = JSON.parse(localStorage.getItem("todos"));
+		return initialValue || [];
+	});
+
+	const [filter, setFilter] = useState(() => {
+		const initialValue = JSON.parse(localStorage.getItem("filter"));
+		return initialValue || "all";
+	});
+
+	useEffect(() => {
+		localStorage.setItem("todos", JSON.stringify(todos));
+		localStorage.setItem("filter", JSON.stringify(filter));
+	}, [todos, filter]);
 
 	const addTask = (userInput) => {
 		const newTodo = {
