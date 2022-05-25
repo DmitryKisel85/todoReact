@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
 import InputMainBlock from "../input-main-block/input-main-block.component";
 import TodosCounter from "../todos-counter/todos-counter.component";
 import FilterBlock from "../filter-block/filter-block.component";
@@ -29,7 +31,7 @@ const MainBlock = () => {
 
 	const addTask = (userInput) => {
 		const newTodo = {
-			id: Math.random().toString(36).substring(2, 9),
+			id: uuidv4(),
 			description: userInput,
 			completed: false,
 		};
