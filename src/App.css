@@ -34,15 +34,6 @@ textarea {
 	resize: none;
 }
 
-h1 {
-	font-weight: 300;
-	font-size: 60px;
-	text-align: center;
-}
-.header {
-	padding: 35px 0;
-}
-
 .mb {
 	margin-bottom: 15px;
 }
@@ -63,23 +54,9 @@ h1 {
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-@media (max-width: 768px) {
-	h1 {
-		font-size: 48px;
-	}
-}
-
 @media (max-width: 400px) {
 	.App {
 		width: 100%;
-	}
-
-	h1 {
-		font-size: 36px;
-	}
-
-	.header {
-		padding: 25px 0;
 	}
 }
 
