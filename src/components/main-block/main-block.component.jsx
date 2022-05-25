@@ -27,6 +27,7 @@ const MainBlock = () => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 		localStorage.setItem("filter", JSON.stringify(filter));
 		addAutoResize();
+		todoFilter(filter);
 	}, [todos, filter]);
 
 	const addTask = (userInput) => {
@@ -56,37 +57,40 @@ const MainBlock = () => {
 
 	const changeFilter = (filterNew) => {
 		setFilter(filterNew);
+		todoFilter(filterNew);
 	};
 
 	const editTask = (updatedTitle, id) => {
 		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
 	};
 
-	const renderFilteredTodos = () => {
+	const [filteredTodos, setFilteredTodos] = useState(todos);
+
+	const todoFilter = (filter) => {
 		// eslint-disable-next-line
 		switch (filter) {
 			case "all":
-				return todos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
-				});
+				setFilteredTodos(todos);
+				break;
 			case "active":
-				const activeTodos = [...todos.filter((todo) => todo.completed === false)];
-				return activeTodos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
-				});
-
+				setFilteredTodos([...todos].filter((todo) => todo.completed === false));
+				break;
 			case "completed":
-				const completedTodos = [...todos.filter((todo) => todo.completed === true)];
-				return completedTodos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
-				});
+				setFilteredTodos([...todos].filter((todo) => todo.completed === true));
+				break;
 		}
 	};
 
 	return (
 		<main className='main'>
 			<InputMainBlock addTask={addTask} />
-			<ul className='todos-wrapper'>{renderFilteredTodos()}</ul>
+
+			<ul className='todos-wrapper'>
+				{filteredTodos.map((todo) => {
+					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
+				})}
+			</ul>
+
 			<TodosCounter todos={todos} />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
 			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} />

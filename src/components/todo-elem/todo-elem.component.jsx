@@ -4,6 +4,8 @@ import BtnEdit from "../btn-edit/btn-edit.component";
 import BtnCheck from "../btn-check/btn-check.component";
 import BtnDelete from "../btn-delete/btn-delete.component";
 
+import BtnTodoElem from "../btn-todo-elem/btn-todo-elem.component";
+
 import "./todo-elem.styles.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
@@ -23,10 +25,11 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 		}
 	};
 
+	console.log(readOnlyState);
+
 	return (
 		<li className={`todo-item ${completed ? "checked" : ""}`} key={id}>
 			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""}`} onChange={() => toggleCompleted(id)} defaultChecked={completed ? true : false} />
-
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
 				id={`input-description-${id}`}
@@ -42,6 +45,7 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 				onBlur={() => modifyEditing(true)}
 			></textarea>
 			{readOnlyState ? <BtnEdit modifyEditing={modifyEditing} /> : <BtnCheck modifyEditing={modifyEditing} />}
+
 			<BtnDelete id={id} deleteTask={deleteTask} />
 		</li>
 	);

@@ -21,6 +21,14 @@
 		opacity: 0;
 	}
 
+	.todo-item .btn-todo-elem {
+		opacity: 0;
+	}
+
+	.todo-item:hover .btn-todo-elem {
+		opacity: 0.5;
+	}
+
 	.todo-item:hover .btn-delete,
 	.todo-item:hover .btn-edit {
 		opacity: 0.5;
