@@ -1,7 +1,0 @@
-@media (hover: hover) and (pointer: fine) {
-	.btn-all-tasks:hover,
-	.btn-active-tasks:hover,
-	.btn-completed-tasks:hover {
-		opacity: 1;
-	}
-}
