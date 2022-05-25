@@ -23,8 +23,8 @@ const InputMainBlock = ({ addTask }) => {
 
 	return (
 		<div className='input-wrapper'>
-			<input type='text' id='input-main' className='input-main' placeholder='What are we going to do?' value={userInput} onChange={handleChange} onKeyDown={handleKeyPress} />
-			<button className='btn-add' id='add-task-btn' onClick={handleSubmit}>
+			<input type='text' className='input-main' placeholder='What are we going to do?' value={userInput} onChange={handleChange} onKeyDown={handleKeyPress} />
+			<button className='btn-add' onClick={handleSubmit}>
 				<i className='fas fa-plus'></i>
 			</button>
 		</div>
