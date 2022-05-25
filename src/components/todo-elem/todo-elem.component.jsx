@@ -28,7 +28,6 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""}`} onChange={() => toggleCompleted(id)} defaultChecked={completed ? true : false} />
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
-				id={`input-description-${id}`}
 				className='description'
 				data-autoresize
 				rows='1'
