@@ -23,11 +23,14 @@ const MainBlock = () => {
 		return initialValue || "all";
 	});
 
+	const [filteredTodos, setFilteredTodos] = useState(todos);
+
 	useEffect(() => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 		localStorage.setItem("filter", JSON.stringify(filter));
 		addAutoResize();
 		todoFilter(filter);
+		// eslint-disable-next-line
 	}, [todos, filter]);
 
 	const addTask = (userInput) => {
@@ -63,8 +66,6 @@ const MainBlock = () => {
 	const editTask = (updatedTitle, id) => {
 		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
 	};
-
-	const [filteredTodos, setFilteredTodos] = useState(todos);
 
 	const todoFilter = (filter) => {
 		// eslint-disable-next-line
