@@ -29,7 +29,7 @@
 
 .todo-item.checked .btn-edit,
 .todo-item.checked .btn-delete {
-	opacity: 0;
+	opacity: 0.5;
 }
 
 @media (hover: hover) and (pointer: fine) {
