@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import BtnEdit from "../btn-edit/btn-edit.component";
 import BtnCheck from "../btn-check/btn-check.component";
@@ -8,6 +8,12 @@ import "./todo-elem.styles.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
 	const [readOnlyState, setReadOnlyState] = useState(true);
+
+	const inputRef = useRef(null);
+
+	useEffect(() => {
+		inputRef.current.focus();
+	}, [readOnlyState]);
 
 	const modifyEditing = (param) => {
 		switch (param) {
@@ -37,6 +43,7 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 				onChange={(e) => {
 					editTask(e.target.value, id);
 				}}
+				ref={inputRef}
 				onBlur={() => modifyEditing(true)}
 			></textarea>
 			{readOnlyState ? <BtnEdit modifyEditing={modifyEditing} /> : <BtnCheck modifyEditing={modifyEditing} />}
