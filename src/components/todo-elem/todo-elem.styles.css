@@ -44,10 +44,14 @@
 	}
 }
 
-.todo-item.deleting,
-.todos-wrapper.deleting {
+.todo-item.deleting {
 	animation: opacity 1s ease-in-out;
 }
+
+.todo-item.checked .deleting {
+	animation: opacity 1s ease-in-out;
+}
+
 .description {
 	color: var(--text-color);
 	display: inline-flex;
@@ -112,5 +116,15 @@
 
 	.description {
 		font-size: 18px;
+	}
+}
+
+@keyframes opacity {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
 	}
 }

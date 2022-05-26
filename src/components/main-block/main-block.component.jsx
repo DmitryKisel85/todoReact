@@ -24,6 +24,8 @@ const MainBlock = () => {
 	});
 
 	const [filteredTodos, setFilteredTodos] = useState(todos);
+	const [isDeletingAll, setIsDeletingAll] = useState(false);
+	const [isDeletingCompleted, setIsDeletingCompleted] = useState(false);
 
 	useEffect(() => {
 		localStorage.setItem("todos", JSON.stringify(todos));
@@ -43,15 +45,28 @@ const MainBlock = () => {
 	};
 
 	const deleteTask = (id) => {
-		setTodos([...todos.filter((todo) => todo.id !== id)]);
+		setTimeout(() => {
+			setTodos([...todos.filter((todo) => todo.id !== id)]);
+		}, 500);
+
+		// setTodos([...todos.filter((todo) => todo.id !== id)]);
 	};
 
 	const clearAll = () => {
-		setTodos([]);
+		setTimeout(() => {
+			setTodos([]);
+			setIsDeletingAll(false);
+		}, 500);
+
+		// setTodos([]);
 	};
 
 	const clearCompleted = () => {
-		setTodos([...todos.filter((todo) => todo.completed === false)]);
+		setTimeout(() => {
+			setTodos([...todos.filter((todo) => todo.completed === false)]);
+			setIsDeletingCompleted(false);
+		}, 500);
+		// setTodos([...todos.filter((todo) => todo.completed === false)]);
 	};
 
 	const toggleCompleted = (id) => {
@@ -86,7 +101,7 @@ const MainBlock = () => {
 		<main className='main'>
 			<InputMainBlock addTask={addTask} />
 
-			<ul className='todos-wrapper'>
+			<ul className={`todos-wrapper ${isDeletingAll ? "deleting" : ""} ${isDeletingCompleted ? "deleting-completed" : ""}`}>
 				{filteredTodos.map((todo) => {
 					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
 				})}
@@ -94,7 +109,7 @@ const MainBlock = () => {
 
 			<TodosCounter todos={todos} />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
-			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} />
+			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} setIsDeletingAll={setIsDeletingAll} setIsDeletingCompleted={setIsDeletingCompleted} />
 		</main>
 	);
 };

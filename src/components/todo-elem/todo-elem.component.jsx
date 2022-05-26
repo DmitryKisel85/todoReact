@@ -8,6 +8,7 @@ import "./todo-elem.styles.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
 	const [readOnlyState, setReadOnlyState] = useState(true);
+	const [isDeleting, setIsDeleting] = useState(false);
 
 	const inputRef = useRef(null);
 
@@ -30,8 +31,8 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 	};
 
 	return (
-		<li className={`todo-item ${completed ? "checked" : ""}`} key={id}>
-			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""}`} onChange={() => toggleCompleted(id)} defaultChecked={completed ? true : false} />
+		<li className={`todo-item ${completed ? "checked" : ""} ${isDeleting ? "deleting" : ""}`} key={id}>
+			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={() => toggleCompleted(id)} defaultChecked={completed ? true : false} />
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
 				className='description'
@@ -47,7 +48,7 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 				onBlur={() => modifyEditing(true)}
 			></textarea>
 			{readOnlyState ? <BtnEdit modifyEditing={modifyEditing} /> : <BtnCheck modifyEditing={modifyEditing} />}
-			<BtnDelete id={id} deleteTask={deleteTask} />
+			<BtnDelete id={id} deleteTask={deleteTask} setIsDeleting={setIsDeleting} />
 		</li>
 	);
 };
