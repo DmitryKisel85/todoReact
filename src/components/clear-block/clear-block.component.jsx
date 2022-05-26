@@ -1,11 +1,13 @@
 import "./clear-block.styles.css";
 
 const ClearBlock = ({ clearAll, clearCompleted, setIsDeletingAll, setIsDeletingCompleted }) => {
+	// удаление всех туду
 	const handleClearAll = () => {
 		clearAll();
 		setIsDeletingAll(true);
 	};
 
+	// удаление завершенных туду
 	const handleClearCompleted = () => {
 		clearCompleted();
 		setIsDeletingCompleted(true);

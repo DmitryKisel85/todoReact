@@ -3,16 +3,22 @@ import { useState } from "react";
 import "./input-main-block.styles.css";
 
 const InputMainBlock = ({ addTask }) => {
+	// стейт главного инпута
 	const [userInput, setUserInput] = useState("");
 
+	// записываем в стейт то, что вводит пользователь
 	const handleChange = (e) => {
 		setUserInput(e.currentTarget.value);
 	};
+
+	//добавляем туду
 	const handleSubmit = () => {
 		if (!userInput || userInput.match(/^[ ]+$/)) return;
 		addTask(userInput);
 		setUserInput("");
 	};
+
+	//добавляем туду по Enter
 	const handleKeyPress = (e) => {
 		if (!userInput || userInput.match(/^[ ]+$/)) return;
 

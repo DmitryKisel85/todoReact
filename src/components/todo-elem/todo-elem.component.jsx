@@ -7,15 +7,20 @@ import BtnDelete from "../btn-delete/btn-delete.component";
 import "./todo-elem.styles.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
+	// Стейт для изменения аттрибута ReadOnly у каждого туду
 	const [readOnlyState, setReadOnlyState] = useState(true);
+
+	// Cтейт для состояния туду, после нажатия кнопки удалить
+	// По этому стейту на туду навешивается класс 'deleting', который запускает анимацию удаления
 	const [isDeleting, setIsDeleting] = useState(false);
 
+	// Используем useRef и useEffect для установки фокуса на textarea при редактировании туду
 	const inputRef = useRef(null);
-
 	useEffect(() => {
 		inputRef.current.focus();
 	}, [readOnlyState]);
 
+	// изменение стейта аттрибута ReadOnly для возможности\невозможности редактирования туду
 	const modifyEditing = (param) => {
 		switch (param) {
 			case true:
