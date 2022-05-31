@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import BtnEdit from "../btn-edit/btn-edit.component";
 import BtnCheck from "../btn-check/btn-check.component";
@@ -56,6 +57,13 @@ const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, delet
 			<BtnDelete id={id} deleteTask={deleteTask} setIsDeleting={setIsDeleting} />
 		</li>
 	);
+};
+
+TodoElem.propTypes = {
+	todo: PropTypes.object.isRequired,
+	toggleCompleted: PropTypes.func.isRequired,
+	deleteTask: PropTypes.func.isRequired,
+	editTask: PropTypes.func.isRequired,
 };
 
 export default TodoElem;

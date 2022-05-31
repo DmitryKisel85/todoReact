@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import BtnFilter from "../btn-filter/btn-filter.component";
 
 import "./filter-block.styles.css";
@@ -16,6 +17,11 @@ const FilterBlock = ({ changeFilter, filter }) => {
 			</BtnFilter>
 		</div>
 	);
+};
+
+FilterBlock.propTypes = {
+	changeFilter: PropTypes.func.isRequired,
+	filter: PropTypes.string.isRequired,
 };
 
 export default FilterBlock;

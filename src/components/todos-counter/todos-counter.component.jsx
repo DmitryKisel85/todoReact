@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "./todos-counter.styles.css";
 
 const TodosCounter = ({ todos }) => {
@@ -6,6 +8,10 @@ const TodosCounter = ({ todos }) => {
 			Things left to do: <span className='todo-number'>{todos.length}</span>
 		</div>
 	);
+};
+
+TodosCounter.propTypes = {
+	todos: PropTypes.array.isRequired,
 };
 
 export default TodosCounter;

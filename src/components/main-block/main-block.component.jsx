@@ -70,6 +70,7 @@ const MainBlock = () => {
 		}, 500);
 	};
 
+	//редактирование туду
 	const editTask = (updatedTitle, id) => {
 		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
 	};

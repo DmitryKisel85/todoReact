@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import "./input-main-block.styles.css";
 
@@ -35,6 +36,10 @@ const InputMainBlock = ({ addTask }) => {
 			</button>
 		</div>
 	);
+};
+
+InputMainBlock.propTypes = {
+	addTask: PropTypes.func.isRequired,
 };
 
 export default InputMainBlock;
