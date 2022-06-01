@@ -37,12 +37,27 @@ const MainBlock = () => {
 	// загрузка стейта туду и текущего фильтра в localStorage
 	// применение авторесайза к отрендеренным туду
 	// перерендеринг туду в зависимости от изменения фильтра
+	// useEffect(() => {
+	// 	localStorage.setItem("todos", JSON.stringify(todos));
+	// 	localStorage.setItem("filter", JSON.stringify(filter));
+	// 	addAutoResize();
+	// 	todoFilter(filter);
+	// }, [todos, filter]);
+
 	useEffect(() => {
+		console.log("todos");
 		localStorage.setItem("todos", JSON.stringify(todos));
-		localStorage.setItem("filter", JSON.stringify(filter));
 		addAutoResize();
+	}, [todos]);
+
+	useEffect(() => {
+		console.log("filter");
+		localStorage.setItem("filter", JSON.stringify(filter));
+	}, [filter]);
+
+	useEffect(() => {
+		console.log("todos & filter");
 		todoFilter(filter);
-		// eslint-disable-next-line
 	}, [todos, filter]);
 
 	// добавление туду
