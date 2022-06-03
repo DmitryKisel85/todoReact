@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 // генератор id
 import { v4 as uuidv4 } from "uuid";
@@ -28,6 +28,7 @@ const MainBlock = () => {
 	});
 
 	// стейт, где хранятся отфильтрованные туду
+	// const [filteredTodos, setFilteredTodos] = useState(todos);
 	const [filteredTodos, setFilteredTodos] = useState(todos);
 
 	// два стейта нужные для добавления классов для контейнера туду (todos-wrapper) и последующей анимации удаления
@@ -108,20 +109,23 @@ const MainBlock = () => {
 		setFilter(filterNew);
 		todoFilter(filterNew);
 	};
-	const todoFilter = (filter) => {
-		// eslint-disable-next-line
-		switch (filter) {
-			case "all":
-				setFilteredTodos(todos);
-				break;
-			case "active":
-				setFilteredTodos([...todos].filter((todo) => todo.completed === false));
-				break;
-			case "completed":
-				setFilteredTodos([...todos].filter((todo) => todo.completed === true));
-				break;
-		}
-	};
+	const todoFilter = useCallback(
+		(filter) => {
+			// eslint-disable-next-line
+			switch (filter) {
+				case "all":
+					setFilteredTodos(todos);
+					break;
+				case "active":
+					setFilteredTodos([...todos].filter((todo) => todo.completed === false));
+					break;
+				case "completed":
+					setFilteredTodos([...todos].filter((todo) => todo.completed === true));
+					break;
+			}
+		},
+		[todos]
+	);
 
 	return (
 		<main className='main'>
