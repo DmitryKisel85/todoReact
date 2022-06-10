@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import "./todos-counter.styles.css";
+import "./todos-counter.css";
 
 const TodosCounter = ({ todos }) => {
 	return (

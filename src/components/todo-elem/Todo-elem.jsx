@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import BtnEdit from "../btn-edit/btn-edit.component";
-import BtnCheck from "../btn-check/btn-check.component";
-import BtnDelete from "../btn-delete/btn-delete.component";
+import BtnEdit from "../btn-edit/Btn-edit";
+import BtnCheck from "../btn-check/Btn-check";
+import BtnDelete from "../btn-delete/Btn-delete";
 
-import "./todo-elem.styles.css";
+import "./todo-elem.css";
 
 const TodoElem = ({ todo: { completed, id, description }, toggleCompleted, deleteTask, editTask }) => {
 	// Стейт для изменения аттрибута ReadOnly у каждого туду

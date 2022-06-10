@@ -1,4 +1,4 @@
-import "./btn-filter.styles.css";
+import "./btn-filter.css";
 
 const BtnFilter = ({ children, active, changeFilter, filter }) => {
 	return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-import "./input-main-block.styles.css";
+import "./input-main-block.css";
 
 const InputMainBlock = ({ addTask }) => {
 	// стейт главного инпута

@@ -1,4 +1,4 @@
-import "./btn-delete.styles.css";
+import "./btn-delete.css";
 
 const BtnDelete = ({ id, deleteTask, setIsDeleting }) => {
 	const handleClick = () => {

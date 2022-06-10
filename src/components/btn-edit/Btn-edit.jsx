@@ -1,4 +1,4 @@
-import "./btn-edit.styles.css";
+import "./btn-edit.css";
 
 const BtnEdit = ({ modifyEditing }) => {
 	return (

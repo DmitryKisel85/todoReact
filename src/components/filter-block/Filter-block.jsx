@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-import BtnFilter from "../btn-filter/btn-filter.component";
-
-import "./filter-block.styles.css";
+import BtnFilter from "../btn-filter/Btn-filter";
 
 const FilterBlock = ({ changeFilter, filter }) => {
 	return (

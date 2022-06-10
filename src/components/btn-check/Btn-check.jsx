@@ -1,4 +1,4 @@
-import "./btn-check.styles.css";
+import "./btn-check.css";
 
 const BtnCheck = ({ modifyEditing }) => {
 	return (

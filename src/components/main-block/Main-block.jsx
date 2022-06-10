@@ -3,16 +3,16 @@ import { useState, useEffect, useCallback } from "react";
 // генератор id
 import { v4 as uuidv4 } from "uuid";
 
-import InputMainBlock from "../input-main-block/input-main-block.component";
-import TodosCounter from "../todos-counter/todos-counter.component";
-import FilterBlock from "../filter-block/filter-block.component";
-import ClearBlock from "../clear-block/clear-block.component";
-import TodoElem from "../todo-elem/todo-elem.component";
+import InputMainBlock from "../input-main-block/Input-main-block";
+import TodosCounter from "../todos-counter/Todos-counter";
+import FilterBlock from "../filter-block/Filter-block";
+import ClearBlock from "../clear-block/Clear-block";
+import TodoElem from "../todo-elem/Todo-elem";
 
 // добавление функции авторесайза туду, в зависимости от кол-ва строк
 import addAutoResize from "../../addAutoResize";
 
-import "./main-block.styles.css";
+import "./main-block.css";
 
 const MainBlock = () => {
 	// главный стейт с туду элементами и загрузка из localStorage
