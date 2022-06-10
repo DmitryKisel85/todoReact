@@ -10,7 +10,7 @@ import ClearBlock from "../clear-block/Clear-block";
 import TodoElem from "../todo-elem/Todo-elem";
 
 // добавление функции авторесайза туду, в зависимости от кол-ва строк
-import addAutoResize from "../../addAutoResize";
+import addAutoResize from "../../services/addAutoResize";
 
 import "./main-block.css";
 
