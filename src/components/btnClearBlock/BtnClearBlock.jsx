@@ -4,7 +4,7 @@ import "./btnClearBlock.css";
 
 const BtnClearBlock = ({ handleClear, children }) => {
 	return (
-		<button className='btn-clear' onClick={handleClear}>
+		<button className='btn_generalStyle btn-clear' onClick={handleClear}>
 			{children}
 		</button>
 	);

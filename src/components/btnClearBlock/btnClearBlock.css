@@ -1,14 +1,4 @@
-.btn-clear {
-	font-size: 18px;
-	font-weight: 400;
-	text-transform: uppercase;
-	color: var(--text-color);
-	padding: 5px 15px;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: all 0.3s ease-out;
-	border-bottom: 1px solid transparent;
-}
+@import "../buttons.css";
 
 .btn-clear:active {
 	transform: translateY(3px);

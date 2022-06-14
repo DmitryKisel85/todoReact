@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import InputTodo from "../input-todo/Input-todo";
 import TodosCounter from "../todosCounter/TodosCounter";
-import FilterBlock from "../filter-block/Filter-block";
+import FilterBlock from "../filterBlock/FilterBlock";
 import ClearBlock from "../clearBlock/ClearBlock";
 import TodoList from "../todoList/TodoList";
 
@@ -54,22 +54,6 @@ const MainBlock = () => {
 	useEffect(() => {
 		todoFilter(filter);
 	}, [todos, filter]);
-
-	// удаление всех туду
-	const clearAll = () => {
-		setTimeout(() => {
-			setTodos([]);
-			setIsDeletingAll(false);
-		}, 500);
-	};
-
-	// удаление завершенных туду
-	const clearCompleted = () => {
-		setTimeout(() => {
-			setTodos([...todos.filter((todo) => todo.completed === false)]);
-			setIsDeletingCompleted(false);
-		}, 500);
-	};
 
 	// Изменение стейта фильтра и изменение стейта отфильтрованных туду, которые потом идут на рендер
 	const changeFilter = (filterNew) => {
