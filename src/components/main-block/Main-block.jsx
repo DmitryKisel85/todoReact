@@ -1,13 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
-// генератор id
-import { v4 as uuidv4 } from "uuid";
-
-import InputMainBlock from "../input-main-block/Input-main-block";
-import TodosCounter from "../todos-counter/Todos-counter";
+import InputTodo from "../input-todo/Input-todo";
+import TodosCounter from "../todosCounter/TodosCounter";
 import FilterBlock from "../filter-block/Filter-block";
 import ClearBlock from "../clear-block/Clear-block";
-import TodoElem from "../todo-elem/Todo-elem";
+import TodoList from "../todoList/TodoList";
 
 // добавление функции авторесайза туду, в зависимости от кол-ва строк
 import addAutoResize from "../../services/addAutoResize";
@@ -46,37 +43,24 @@ const MainBlock = () => {
 	// }, [todos, filter]);
 
 	useEffect(() => {
-		console.log("todos");
 		localStorage.setItem("todos", JSON.stringify(todos));
 		addAutoResize();
 	}, [todos]);
 
 	useEffect(() => {
-		console.log("filter");
 		localStorage.setItem("filter", JSON.stringify(filter));
 	}, [filter]);
 
 	useEffect(() => {
-		console.log("todos & filter");
 		todoFilter(filter);
 	}, [todos, filter]);
 
-	// добавление туду
-	const addTask = (userInput) => {
-		const newTodo = {
-			id: uuidv4(),
-			description: userInput,
-			completed: false,
-		};
-		setTodos([...todos, newTodo]);
-	};
-
-	// удаление туду
-	const deleteTask = (id) => {
-		setTimeout(() => {
-			setTodos([...todos.filter((todo) => todo.id !== id)]);
-		}, 500);
-	};
+	// // удаление туду
+	// const deleteTask = (id) => {
+	// 	setTimeout(() => {
+	// 		setTodos([...todos.filter((todo) => todo.id !== id)]);
+	// 	}, 500);
+	// };
 
 	// удаление всех туду
 	const clearAll = () => {
@@ -86,10 +70,10 @@ const MainBlock = () => {
 		}, 500);
 	};
 
-	//редактирование туду
-	const editTask = (updatedTitle, id) => {
-		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
-	};
+	// //редактирование туду
+	// const editTask = (updatedTitle, id) => {
+	// 	setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
+	// };
 
 	// удаление завершенных туду
 	const clearCompleted = () => {
@@ -129,15 +113,15 @@ const MainBlock = () => {
 
 	return (
 		<main className='main'>
-			<InputMainBlock addTask={addTask} />
+			<InputTodo />
 
-			<ul className={`todos-wrapper ${isDeletingAll ? "deleting" : ""} ${isDeletingCompleted ? "deleting-completed" : ""}`}>
+			{/* <ul className={`todos-wrapper ${isDeletingAll ? "deleting" : ""} ${isDeletingCompleted ? "deleting-completed" : ""}`}>
 				{filteredTodos.map((todo) => {
 					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
 				})}
-			</ul>
-
-			<TodosCounter todos={todos} />
+			</ul> */}
+			<TodoList />
+			<TodosCounter />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
 			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} setIsDeletingAll={setIsDeletingAll} setIsDeletingCompleted={setIsDeletingCompleted} />
 		</main>

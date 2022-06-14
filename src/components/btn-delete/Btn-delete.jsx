@@ -1,13 +1,13 @@
 import "./btn-delete.css";
 
-const BtnDelete = ({ id, deleteTask, setIsDeleting }) => {
-	const handleClick = () => {
-		deleteTask(id);
-		setIsDeleting((prev) => !prev);
-	};
+const BtnDelete = ({ handleDelete }) => {
+	// const handleClick = () => {
+	// 	deleteTask(id);
+	// 	setIsDeleting((prev) => !prev);
+	// };
 
 	return (
-		<button className='btn-delete' id='btn-delete' onClick={handleClick}>
+		<button className='btn-delete' id='btn-delete' onClick={handleDelete}>
 			<i className='fas fa-times'></i>
 		</button>
 	);

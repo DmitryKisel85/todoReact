@@ -5,16 +5,3 @@
 	align-items: center;
 }
 
-.todos-wrapper {
-	padding: 15px 10px 0 10px;
-	flex: 1 1 100%;
-	width: 100%;
-}
-
-.todos-wrapper.deleting {
-	animation: opacity 1s ease-in-out;
-}
-
-.todos-wrapper.deleting-completed > li.checked {
-	animation: opacity 1s ease-in-out;
-}
