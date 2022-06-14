@@ -13,10 +13,12 @@ const todosSlice = createSlice({
 			state.todos.push(action.payload);
 		},
 		toggleCompleted: (state, action) => {
-			state.todos.map((todo) => (todo.id === action.payload ? (todo.completed = !todo.completed) : todo));
+			const completedTodo = state.todos.find((todo) => todo.id === action.payload);
+			completedTodo.completed = !completedTodo.completed;
 		},
 		editTodo: (state, action) => {
-			state.todos.map((todo) => (todo.id === action.payload.id ? (todo.description = action.payload.updatedValue) : todo));
+			const editedTodo = state.todos.find((todo) => todo.id === action.payload.id);
+			editedTodo.description = action.payload.updatedValue;
 		},
 		deleteTodo: (state, action) => {
 			state.todos = state.todos.filter((todo) => {
