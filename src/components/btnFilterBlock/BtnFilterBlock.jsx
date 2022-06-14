@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "./btnFilterBlock.css";
 
 const BtnFilterBlock = ({ children, handleChangeFilter, filter, active }) => {
@@ -6,6 +8,13 @@ const BtnFilterBlock = ({ children, handleChangeFilter, filter, active }) => {
 			{children}
 		</button>
 	);
+};
+
+BtnFilterBlock.propTypes = {
+	children: PropTypes.string.isRequired,
+	handleChangeFilter: PropTypes.func.isRequired,
+	filter: PropTypes.string.isRequired,
+	active: PropTypes.bool.isRequired,
 };
 
 export default BtnFilterBlock;
