@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 
+import BtnClearBlock from "../btnClearBlock/BtnClearBlock";
 import "./clearBlock.css";
 
 const ClearBlock = ({ clearAll, clearCompleted, setIsDeletingAll, setIsDeletingCompleted }) => {
@@ -16,13 +17,9 @@ const ClearBlock = ({ clearAll, clearCompleted, setIsDeletingAll, setIsDeletingC
 	};
 
 	return (
-		<div className='mb'>
-			<button className='btn-clear-all btn-clear' onClick={handleClearAll}>
-				Clear All
-			</button>
-			<button className='btn-clear-completed btn-clear' onClick={handleClearCompleted}>
-				Clear completed
-			</button>
+		<div className='clear-block'>
+			<BtnClearBlock handleClear={handleClearAll}>Clear All</BtnClearBlock>
+			<BtnClearBlock handleClear={handleClearCompleted}>Clear Completed</BtnClearBlock>
 		</div>
 	);
 };
