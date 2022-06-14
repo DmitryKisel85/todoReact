@@ -10,15 +10,7 @@ const TodoList = () => {
 	const filteredTodos = useSelector(filteredTodosSelector);
 
 	const renderedTodos = filteredTodos.map(({ id }) => {
-		return (
-			<TodoListItem
-				key={id}
-				id={id}
-				// toggleCompleted={toggleCompleted}
-				// deleteTask={deleteTask}
-				// editTask={editTask}
-			/>
-		);
+		return <TodoListItem key={id} id={id} />;
 	});
 	return <ul className='todos-wrapper'>{renderedTodos}</ul>;
 };

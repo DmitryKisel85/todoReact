@@ -4,10 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleCompleted, editTodo, deleteTodo } from "../todoList/todosSlice";
 import PropTypes from "prop-types";
 
-// import BtnEdit from "../btn-edit/Btn-edit";
-// import BtnCheck from "../btn-check/Btn-check";
-// import BtnDelete from "../btn-delete/Btn-delete";
-
 import BtnTodoListItem from "../btnTodoListItem/BtnTodoListItem";
 
 import "./todoListItem.css";
@@ -18,7 +14,6 @@ const TodoListItem = ({ id }) => {
 	const [todo] = useSelector((state) => {
 		return state.todos.todos.filter((todo) => todo.id === id);
 	});
-
 	const { completed, description } = todo;
 
 	// Стейт для изменения аттрибута ReadOnly у каждого туду
@@ -59,7 +54,6 @@ const TodoListItem = ({ id }) => {
 	};
 
 	const handleDelete = () => {
-		console.log("deleting", id);
 		dispatch(deleteTodo(id));
 	};
 

@@ -9,7 +9,7 @@ import TodoList from "../todoList/TodoList";
 // добавление функции авторесайза туду, в зависимости от кол-ва строк
 import addAutoResize from "../../services/addAutoResize";
 
-import "./main-block.css";
+import "./mainBlock.css";
 
 const MainBlock = () => {
 	// главный стейт с туду элементами и загрузка из localStorage
@@ -55,13 +55,6 @@ const MainBlock = () => {
 		todoFilter(filter);
 	}, [todos, filter]);
 
-	// // удаление туду
-	// const deleteTask = (id) => {
-	// 	setTimeout(() => {
-	// 		setTodos([...todos.filter((todo) => todo.id !== id)]);
-	// 	}, 500);
-	// };
-
 	// удаление всех туду
 	const clearAll = () => {
 		setTimeout(() => {
@@ -70,22 +63,12 @@ const MainBlock = () => {
 		}, 500);
 	};
 
-	// //редактирование туду
-	// const editTask = (updatedTitle, id) => {
-	// 	setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, description: updatedTitle } : { ...todo }))]);
-	// };
-
 	// удаление завершенных туду
 	const clearCompleted = () => {
 		setTimeout(() => {
 			setTodos([...todos.filter((todo) => todo.completed === false)]);
 			setIsDeletingCompleted(false);
 		}, 500);
-	};
-
-	// изменение статуса туду (completed: true/false)
-	const toggleCompleted = (id) => {
-		setTodos([...todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : { ...todo }))]);
 	};
 
 	// Изменение стейта фильтра и изменение стейта отфильтрованных туду, которые потом идут на рендер
@@ -114,12 +97,6 @@ const MainBlock = () => {
 	return (
 		<main className='main'>
 			<InputTodo />
-
-			{/* <ul className={`todos-wrapper ${isDeletingAll ? "deleting" : ""} ${isDeletingCompleted ? "deleting-completed" : ""}`}>
-				{filteredTodos.map((todo) => {
-					return <TodoElem todo={todo} key={todo.id} toggleCompleted={toggleCompleted} deleteTask={deleteTask} editTask={editTask} />;
-				})}
-			</ul> */}
 			<TodoList />
 			<TodosCounter />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />

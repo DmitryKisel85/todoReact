@@ -1,7 +1,7 @@
 import "./App.css";
 
 import Header from "./components/header/Header";
-import MainBlock from "./components/main-block/Main-block";
+import MainBlock from "./components/mainBlock/MainBlock";
 
 const App = () => {
 	return (
