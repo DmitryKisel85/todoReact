@@ -3,3 +3,10 @@
 	position: relative;
 	transform: translateY(1px);
 }
+
+.fa-plus {
+	display: block;
+	margin-right: 20px;
+	color: var(--input-color);
+	font-size: 36px;
+}

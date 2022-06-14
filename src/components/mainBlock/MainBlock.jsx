@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-import InputTodo from "../input-todo/Input-todo";
+import InputTodo from "../inputTodo/InputTodo";
 import TodosCounter from "../todosCounter/TodosCounter";
 import FilterBlock from "../filterBlock/FilterBlock";
 import ClearBlock from "../clearBlock/ClearBlock";
