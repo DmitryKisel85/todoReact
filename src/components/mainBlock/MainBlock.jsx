@@ -51,39 +51,12 @@ const MainBlock = () => {
 		localStorage.setItem("filter", JSON.stringify(filter));
 	}, [filter]);
 
-	useEffect(() => {
-		todoFilter(filter);
-	}, [todos, filter]);
-
-	// Изменение стейта фильтра и изменение стейта отфильтрованных туду, которые потом идут на рендер
-	const changeFilter = (filterNew) => {
-		setFilter(filterNew);
-		todoFilter(filterNew);
-	};
-	const todoFilter = useCallback(
-		(filter) => {
-			// eslint-disable-next-line
-			switch (filter) {
-				case "all":
-					setFilteredTodos(todos);
-					break;
-				case "active":
-					setFilteredTodos([...todos].filter((todo) => todo.completed === false));
-					break;
-				case "completed":
-					setFilteredTodos([...todos].filter((todo) => todo.completed === true));
-					break;
-			}
-		},
-		[todos]
-	);
-
 	return (
 		<main className='main'>
 			<InputTodo />
 			<TodoList />
 			<TodosCounter />
-			<FilterBlock changeFilter={changeFilter} filter={filter} />
+			<FilterBlock />
 			<ClearBlock />
 		</main>
 	);
