@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import InputTodo from "../input-todo/Input-todo";
 import TodosCounter from "../todosCounter/TodosCounter";
 import FilterBlock from "../filter-block/Filter-block";
-import ClearBlock from "../clear-block/Clear-block";
+import ClearBlock from "../clearBlock/ClearBlock";
 import TodoList from "../todoList/TodoList";
 
 // добавление функции авторесайза туду, в зависимости от кол-ва строк

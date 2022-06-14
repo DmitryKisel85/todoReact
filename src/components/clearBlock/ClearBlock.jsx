@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import "./clear-block.css";
+import "./clearBlock.css";
 
 const ClearBlock = ({ clearAll, clearCompleted, setIsDeletingAll, setIsDeletingCompleted }) => {
 	// удаление всех туду
