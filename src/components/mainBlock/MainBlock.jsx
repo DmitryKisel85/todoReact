@@ -100,7 +100,7 @@ const MainBlock = () => {
 			<TodoList />
 			<TodosCounter />
 			<FilterBlock changeFilter={changeFilter} filter={filter} />
-			<ClearBlock clearAll={clearAll} clearCompleted={clearCompleted} setIsDeletingAll={setIsDeletingAll} setIsDeletingCompleted={setIsDeletingCompleted} />
+			<ClearBlock />
 		</main>
 	);
 };
