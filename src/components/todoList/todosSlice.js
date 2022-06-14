@@ -23,6 +23,14 @@ const todosSlice = createSlice({
 				return action.payload !== todo.id;
 			});
 		},
+		clearAllTodos: (state, action) => {
+			state.todos = [];
+		},
+		clearCompletedTodos: (state, action) => {
+			state.todos = state.todos.filter((todo) => {
+				return todo.completed === false;
+			});
+		},
 	},
 });
 
@@ -47,4 +55,4 @@ export const filteredTodosSelector = createSelector(
 	}
 );
 
-export const { addTodo, toggleCompleted, editTodo, deleteTodo } = actions;
+export const { addTodo, toggleCompleted, editTodo, deleteTodo, clearAllTodos, clearCompletedTodos } = actions;
