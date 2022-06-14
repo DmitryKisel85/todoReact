@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 // генератор id
 import { v4 as uuidv4 } from "uuid";
 
-import { addTodo } from "../todoList/todosSlice";
+import { addTodo } from "../../store/todosSlice";
 
 import "./inputTodo.css";
 

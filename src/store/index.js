@@ -1,14 +1,34 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
-import todos from "../components/todoList/todosSlice";
-import filter from "../components/filterBlock/filterSlice";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+import todosReducer from "./todosSlice";
+import filterReducer from "./filterSlice";
+
+const rootReducer = combineReducers({
+	todos: todosReducer,
+	filter: filterReducer,
+});
+
+const persistConfig = {
+	key: "root",
+	storage: storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-	reducer: {
-		todos: todos,
-		filter: filter,
-	},
-	devTools: process.env.NODE_ENV !== "production",
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}),
+	// devTools: process.env.NODE_ENV !== "production",
 });
+
+export const persistor = persistStore(store);
 
 export default store;

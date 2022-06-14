@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleCompleted, editTodo, deleteTodo } from "../todoList/todosSlice";
+import { toggleCompleted, editTodo, deleteTodo } from "../../store/todosSlice";
 import PropTypes from "prop-types";
 
 import BtnTodoListItem from "../btnTodoListItem/BtnTodoListItem";

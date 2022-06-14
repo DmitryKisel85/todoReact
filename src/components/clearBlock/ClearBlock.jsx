@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-import { clearAllTodos, clearCompletedTodos } from "../todoList/todosSlice";
+import { clearAllTodos, clearCompletedTodos } from "../../store/todosSlice";
 
 import BtnClearBlock from "../btnClearBlock/BtnClearBlock";
 import "./clearBlock.css";
