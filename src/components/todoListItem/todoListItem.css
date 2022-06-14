@@ -10,27 +10,8 @@
 	border-bottom: 2px solid var(--text-color);
 }
 
-/* previous */
-.todo-item .btn-delete,
-.todo-item .btn-edit {
-	opacity: 1;
-}
-
 .todo-item .btn-todolistitem {
 	opacity: 1;
-}
-
-/* previous */
-@media (hover: hover) and (pointer: fine) {
-	.todo-item .btn-delete,
-	.todo-item .btn-edit {
-		opacity: 0;
-	}
-
-	.todo-item:hover .btn-delete,
-	.todo-item:hover .btn-edit {
-		opacity: 0.5;
-	}
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -43,17 +24,10 @@
 	}
 }
 
-/* previous */
-.todo-item.checked .btn-edit,
-.todo-item.checked .btn-delete {
-	opacity: 0.5;
-}
-
 .todo-item.checked .btn-todolistitem {
 	opacity: 0.5;
 }
 
-/* previous */
 @media (hover: hover) and (pointer: fine) {
 	.todo-item.checked .btn-todolistitem {
 		opacity: 0;
