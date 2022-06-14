@@ -85,8 +85,6 @@ const TodoListItem = ({ id }) => {
 	// 	</li>
 	// );
 
-	console.log(readOnlyState);
-
 	return (
 		<li className={`todo-item ${completed ? "checked" : ""} ${isDeleting ? "deleting" : ""}`} key={id}>
 			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={handleChange} defaultChecked={completed ? true : false} />
@@ -102,7 +100,10 @@ const TodoListItem = ({ id }) => {
 				ref={inputRef}
 				onBlur={() => modifyEditing(true)}
 			></textarea>
-			{readOnlyState ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />}
+
+			{readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : null}
+			{readOnlyState === false ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' /> : null}
+
 			<BtnTodoListItem handleOperation={handleDelete} iconClass='fas fa-times' setIsDeleting={setIsDeleting} />
 		</li>
 	);
