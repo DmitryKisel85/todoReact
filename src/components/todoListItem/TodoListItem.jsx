@@ -63,28 +63,6 @@ const TodoListItem = ({ id }) => {
 		dispatch(deleteTodo(id));
 	};
 
-	// return (
-	// 	<li className={`todo-item ${completed ? "checked" : ""} ${isDeleting ? "deleting" : ""}`} key={id}>
-	// 		<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={() => handleChange(id)} defaultChecked={completed ? true : false} />
-	// 		<label htmlFor={`btn-complete-${id}`}></label>
-	// 		<textarea
-	// 			className='description'
-	// 			data-autoresize
-	// 			rows='1'
-	// 			readOnly={readOnlyState}
-	// 			value={description}
-	// 			onDoubleClick={() => modifyEditing(false)}
-	// 			onChange={(e) => {
-	// 				editTask(e.target.value, id);
-	// 			}}
-	// 			ref={inputRef}
-	// 			onBlur={() => modifyEditing(true)}
-	// 		></textarea>
-	// 		{readOnlyState ? <BtnEdit modifyEditing={modifyEditing} /> : <BtnCheck modifyEditing={modifyEditing} />}
-	// 		<BtnDelete id={id} deleteTask={deleteTask} setIsDeleting={setIsDeleting} />
-	// 	</li>
-	// );
-
 	return (
 		<li className={`todo-item ${completed ? "checked" : ""} ${isDeleting ? "deleting" : ""}`} key={id}>
 			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={handleChange} defaultChecked={completed ? true : false} />
@@ -100,6 +78,8 @@ const TodoListItem = ({ id }) => {
 				ref={inputRef}
 				onBlur={() => modifyEditing(true)}
 			></textarea>
+
+			{/* {readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />} */}
 
 			{readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : null}
 			{readOnlyState === false ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' /> : null}
