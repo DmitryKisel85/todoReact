@@ -9,21 +9,21 @@
 	border-radius: 5px;
 }
 
-.btn-add {
+/* .btn-add {
 	cursor: pointer;
 	transition: filter 0.3s ease-out;
 	color: var(--input-color);
-}
+} */
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
 	.btn-add:hover {
 		filter: brightness(1.5);
 	}
-}
+} */
 
-.btn-add:active {
+/* .btn-add:active {
 	transform: scale(1.05);
-}
+} */
 
 .input-main {
 	width: 100%;

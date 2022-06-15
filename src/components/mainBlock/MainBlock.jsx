@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import InputTodo from "../inputTodo/InputTodo";
 import TodosCounter from "../todosCounter/TodosCounter";
 import FilterBlock from "../filterBlock/FilterBlock";
@@ -8,19 +6,17 @@ import TodoList from "../todoList/TodoList";
 
 import "./mainBlock.css";
 
-const MainBlock = () => {
-	// два стейта нужные для добавления классов для контейнера туду (todos-wrapper) и последующей анимации удаления
-	const [isDeletingAll, setIsDeletingAll] = useState(false);
-	const [isDeletingCompleted, setIsDeletingCompleted] = useState(false);
+import { motion } from "framer-motion";
 
+const MainBlock = () => {
 	return (
-		<main className='main'>
+		<motion.main layout className='main'>
 			<InputTodo />
 			<TodoList />
 			<TodosCounter />
 			<FilterBlock />
 			<ClearBlock />
-		</main>
+		</motion.main>
 	);
 };
 

@@ -2,11 +2,26 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toggleCompleted, editTodo, deleteTodo } from "../../store/todosSlice";
+
 import PropTypes from "prop-types";
 
 import BtnTodoListItem from "../btnTodoListItem/BtnTodoListItem";
 
 import "./todoListItem.css";
+
+// ANIMATIONS
+import { motion } from "framer-motion";
+const variants = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 0.2,
+		},
+	},
+};
 
 const TodoListItem = ({ id }) => {
 	const dispatch = useDispatch();
@@ -18,10 +33,6 @@ const TodoListItem = ({ id }) => {
 
 	// Стейт для изменения аттрибута ReadOnly у каждого туду
 	const [readOnlyState, setReadOnlyState] = useState(true);
-
-	// Cтейт для состояния туду, после нажатия кнопки удалить
-	// По этому стейту на туду навешивается класс 'deleting', который запускает анимацию удаления
-	const [isDeleting, setIsDeleting] = useState(false);
 
 	// Используем useRef и useEffect для установки фокуса на textarea при редактировании туду
 	const inputRef = useRef(null);
@@ -58,7 +69,7 @@ const TodoListItem = ({ id }) => {
 	};
 
 	return (
-		<li className={`todo-item ${completed ? "checked" : ""} ${isDeleting ? "deleting" : ""}`} key={id}>
+		<motion.li className={`todo-item ${completed ? "checked" : ""}`} key={id} initial='hidden' animate='visible' exit='hidden' variants={variants} layoutId={id}>
 			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={handleChange} defaultChecked={completed ? true : false} />
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
@@ -78,8 +89,8 @@ const TodoListItem = ({ id }) => {
 			{readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : null}
 			{readOnlyState === false ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' /> : null}
 
-			<BtnTodoListItem handleOperation={handleDelete} iconClass='fas fa-times' setIsDeleting={setIsDeleting} />
-		</li>
+			<BtnTodoListItem handleOperation={handleDelete} iconClass='fas fa-times' />
+		</motion.li>
 	);
 };
 
