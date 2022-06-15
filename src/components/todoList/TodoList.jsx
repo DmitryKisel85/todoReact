@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import TodoListItem from "../todoListItem/TodoListItem";
-
-import { filteredTodosSelector } from "../../store/todosSlice";
-
 // добавление функции авторесайза туду, в зависимости от кол-ва строк
-import addAutoResize from "../../services/addAutoResize";
+import addAutoResize from "@services/addAutoResize";
+
+import { filteredTodosSelector } from "@store/todosSlice";
+
+import TodoListItem from "@components/todoListItem/";
 
 import "./todoList.css";
 

@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { motion } from "framer-motion";
 // генератор id
 import { v4 as uuidv4 } from "uuid";
 
-import { addTodo } from "../../store/todosSlice";
+import { addTodo } from "@store/todosSlice";
 
 import "./inputTodo.css";
-
-import { motion } from "framer-motion";
 
 const InputTodo = () => {
 	const dispatch = useDispatch();

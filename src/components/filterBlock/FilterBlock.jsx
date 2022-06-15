@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { activeFilterChanged } from "../../store/filterSlice";
+import { activeFilterChanged } from "@store/filterSlice";
 
-import BtnFilterBlock from "../btnFilterBlock/BtnFilterBlock";
+import BtnFilterBlock from "@components/btnFilterBlock/";
 
 const FilterBlock = () => {
 	const dispatch = useDispatch();

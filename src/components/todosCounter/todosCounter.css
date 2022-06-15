@@ -1,4 +1,4 @@
-@import "../../styles/mediaqueries.css";
+@import "@styles/mediaqueries.css";
 
 .todo-count {
 	padding: 15px 0;

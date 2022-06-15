@@ -1,16 +1,15 @@
+import PropTypes from "prop-types";
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
-import { toggleCompleted, editTodo, deleteTodo } from "../../store/todosSlice";
+import { toggleCompleted, editTodo, deleteTodo } from "@store/todosSlice";
 
-import PropTypes from "prop-types";
-
-import BtnTodoListItem from "../btnTodoListItem/BtnTodoListItem";
+import BtnTodoListItem from "@components/btnTodoListItem";
 
 import "./todoListItem.css";
 
 // ANIMATIONS
-import { motion } from "framer-motion";
 const variants = {
 	hidden: {
 		opacity: 0,

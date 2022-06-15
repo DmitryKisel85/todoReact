@@ -1,5 +1,5 @@
-@import "../../styles/buttons.css";
-@import "../../styles/mediaqueries.css";
+@import "@styles/buttons.css";
+@import "@styles/mediaqueries.css";
 
 .btn-filter {
 	opacity: 0.5;

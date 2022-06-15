@@ -1,4 +1,4 @@
-@import "../../styles/iconClasses.css";
+@import "@styles/iconClasses.css";
 
 .btn-todolistitem {
 	color: var(--text-color);

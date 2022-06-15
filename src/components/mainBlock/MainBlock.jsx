@@ -1,22 +1,20 @@
-import InputTodo from "../inputTodo/InputTodo";
-import TodosCounter from "../todosCounter/TodosCounter";
-import FilterBlock from "../filterBlock/FilterBlock";
-import ClearBlock from "../clearBlock/ClearBlock";
-import TodoList from "../todoList/TodoList";
+import InputTodo from "@components/inputTodo";
+import TodosCounter from "@components/todosCounter";
+import FilterBlock from "@components/filterBlock";
+import ClearBlock from "@components/clearBlock";
+import TodoList from "@components/todoList";
 
 import "./mainBlock.css";
 
-import { motion } from "framer-motion";
-
 const MainBlock = () => {
 	return (
-		<motion.main layout className='main'>
+		<main className='main'>
 			<InputTodo />
 			<TodoList />
 			<TodosCounter />
 			<FilterBlock />
 			<ClearBlock />
-		</motion.main>
+		</main>
 	);
 };
 
