@@ -1,3 +1,5 @@
+@import "../../styles/mediaqueries.css";
+
 .todo-item {
 	display: flex;
 	align-items: center;
@@ -36,14 +38,6 @@
 	.todo-item.checked:hover .btn-todolistitem {
 		opacity: 0.5;
 	}
-}
-
-.todo-item.deleting {
-	animation: opacity 1s ease-in-out;
-}
-
-.todo-item.checked .deleting {
-	animation: opacity 1s ease-in-out;
 }
 
 .description {
@@ -101,14 +95,4 @@
 .btn-complete:checked ~ * {
 	text-decoration: line-through;
 	opacity: 0.5;
-}
-
-@media (max-width: 400px) {
-	.todo-item {
-		gap: 10px;
-	}
-
-	.description {
-		font-size: 18px;
-	}
 }

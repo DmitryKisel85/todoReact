@@ -1,4 +1,4 @@
-@import "../buttons.css";
+@import "../../styles/buttons.css";
 
 .btn-clear:active {
 	transform: translateY(3px);

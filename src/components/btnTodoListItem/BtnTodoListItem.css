@@ -1,3 +1,5 @@
+@import "../../styles/iconClasses.css";
+
 .btn-todolistitem {
 	color: var(--text-color);
 }
@@ -5,7 +7,8 @@
 @media (hover: hover) and (pointer: fine) {
 	.btn-todolistitem:hover {
 		opacity: 1 !important;
-		transition: opacity 0.3s ease-out;
+		transform: scale(1.1);
+		transition: all 0.2s ease-out;
 		cursor: pointer;
 	}
 }

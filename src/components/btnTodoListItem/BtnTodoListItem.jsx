@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 import "./BtnTodoListItem.css";
-import "../iconClasses.css";
 
 const BtnTodoListItem = ({ handleOperation, iconClass }) => {
 	return (

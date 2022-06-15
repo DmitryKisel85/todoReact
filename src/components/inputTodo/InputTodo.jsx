@@ -40,7 +40,7 @@ const InputTodo = () => {
 	return (
 		<form className='input-wrapper' onSubmit={handleSubmit}>
 			<input type='text' className='input-main' placeholder='What are we going to do?' value={userInput} onChange={handleChange} />
-			<motion.button whileTap={{ scale: 0.95 }} whileHover={{ cursor: "pointer", scale: 1.15, filter: "brightness(1.5)" }} className='btn-add' onClick={handleSubmit}>
+			<motion.button whileTap={{ scale: 0.95 }} whileHover={{ cursor: "pointer", scale: 1.1, filter: "brightness(1.5)" }} className='btn-add' onClick={handleSubmit}>
 				<i className='fas fa-plus'></i>
 			</motion.button>
 		</form>
