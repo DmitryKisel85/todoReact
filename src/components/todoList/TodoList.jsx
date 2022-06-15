@@ -19,7 +19,6 @@ const TodoList = () => {
 	const renderedTodos = filteredTodos.map(({ id }) => {
 		return <TodoListItem key={id} id={id} />;
 	});
-	// return <ul className='todos-wrapper'>{renderedTodos}</ul>;
 	return <ul className='todos-wrapper'>{renderedTodos}</ul>;
 };
 

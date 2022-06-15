@@ -11,7 +11,7 @@ import "./inputTodo.css";
 const InputTodo = () => {
 	const dispatch = useDispatch();
 
-	// стейт главного инпута
+	// стейт главного инпута туду
 	const [userInput, setUserInput] = useState("");
 
 	// записываем в стейт то, что вводит пользователь
@@ -23,6 +23,7 @@ const InputTodo = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		// проверка на пустую строку и пробелы
 		if (!userInput || userInput.match(/^[ ]+$/)) return;
 
 		const newTodo = {

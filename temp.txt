@@ -2,3 +2,12 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
+
+
+ - правильно написал название компонентов
+ - настроил алиасы с помощью craco и везде подкорректировал пути
+ - отдельно создал папку styles, куда скинул общие стили и медиазапросы
+ - отдельно создал папку services, куда скинул подключаемую функцию addAutoResize
+ - добавил проверку пропсов с помощью propTypes
+ - работу с localStorage сделал через react-persist
+ - добавил чуть анимации с помощью Framer Motion

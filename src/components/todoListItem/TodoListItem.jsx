@@ -9,7 +9,7 @@ import BtnTodoListItem from "@components/btnTodoListItem";
 
 import "./todoListItem.css";
 
-// ANIMATIONS
+// объект с настройками анимации Framer Motion
 const variants = {
 	hidden: {
 		opacity: 0,
@@ -54,15 +54,18 @@ const TodoListItem = ({ id }) => {
 		}
 	};
 
+	// выполнение туду
 	const handleChange = () => {
 		dispatch(toggleCompleted(id));
 	};
 
+	// редактирование туду
 	const handleEdit = (e) => {
 		const updatedValue = e.currentTarget.value;
 		dispatch(editTodo({ id: id, updatedValue: updatedValue }));
 	};
 
+	// удаление туду
 	const handleDelete = () => {
 		dispatch(deleteTodo(id));
 	};
