@@ -1,3 +1,12 @@
+@import "@styles/variables.scss";
+
 .clear-block {
 	padding: 15px 0;
+}
+
+@media (max-width: $mobileSmall) {
+	.clear-block {
+		display: flex;
+		flex-direction: column;
+	}
 }
