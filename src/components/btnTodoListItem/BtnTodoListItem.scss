@@ -1,7 +1,8 @@
-@import "@styles/iconClasses.css";
+@import "@styles/iconClasses.scss";
+@import "@styles/variables.scss";
 
 .btn-todolistitem {
-	color: var(--text-color);
+	color: $textColor;
 }
 
 @media (hover: hover) and (pointer: fine) {

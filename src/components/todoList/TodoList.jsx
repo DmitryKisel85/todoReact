@@ -7,7 +7,7 @@ import { filteredTodosSelector } from "@store/todosSlice";
 
 import TodoListItem from "@components/todoListItem/";
 
-import "./todoList.css";
+import "./todoList.scss";
 
 const TodoList = () => {
 	const filteredTodos = useSelector(filteredTodosSelector);

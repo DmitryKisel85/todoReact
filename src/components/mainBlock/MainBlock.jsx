@@ -4,7 +4,7 @@ import FilterBlock from "@components/filterBlock";
 import ClearBlock from "@components/clearBlock";
 import TodoList from "@components/todoList";
 
-import "./mainBlock.css";
+import "./mainBlock.scss";
 
 const MainBlock = () => {
 	return (

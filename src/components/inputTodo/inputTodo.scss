@@ -1,0 +1,42 @@
+@import "@styles/iconClasses.scss";
+@import "@styles/variables.scss";
+
+.input-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.input-main {
+	width: 100%;
+	padding: 20px;
+	font-size: 24px;
+	color: $inputColor;
+
+	&::placeholder {
+		font-size: 20px;
+		opacity: 0.5;
+	}
+}
+
+@media (max-width: $mobile) {
+	.input-wrapper {
+		margin-bottom: 15px;
+	}
+
+	.input-main {
+		font-size: 22px;
+		padding: 20px 10px;
+
+		&::placeholder {
+			font-size: 18px;
+		}
+	}
+
+	.btn-add svg {
+		margin-right: 10px;
+	}
+}

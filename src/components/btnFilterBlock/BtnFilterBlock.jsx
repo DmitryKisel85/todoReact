@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import "./btnFilterBlock.css";
+import "./btnFilterBlock.scss";
 
 const BtnFilterBlock = ({ children, handleChangeFilter, filter, active }) => {
 	return (

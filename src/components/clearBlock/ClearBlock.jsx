@@ -3,7 +3,7 @@ import { clearAllTodos, clearCompletedTodos } from "@store/todosSlice";
 
 import BtnClearBlock from "@components/btnClearBlock/";
 
-import "./clearBlock.css";
+import "./clearBlock.scss";
 
 const ClearBlock = () => {
 	const dispatch = useDispatch();

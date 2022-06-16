@@ -1,0 +1,11 @@
+@import "@styles/variables.scss";
+
+.todo-count {
+	padding: 15px 0;
+}
+
+@media (max-width: $mobile) {
+	.todo-count {
+		font-size: 18px;
+	}
+}

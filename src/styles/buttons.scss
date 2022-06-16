@@ -1,8 +1,10 @@
+@import "@styles/variables.scss";
+
 .btn_generalStyle {
 	font-size: 18px;
 	font-weight: 400;
 	text-transform: uppercase;
-	color: var(--text-color);
+	color: $textColor;
 	padding: 5px 15px;
 	border-radius: 5px;
 	cursor: pointer;

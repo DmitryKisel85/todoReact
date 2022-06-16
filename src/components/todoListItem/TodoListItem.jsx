@@ -7,7 +7,7 @@ import { toggleCompleted, editTodo, deleteTodo } from "@store/todosSlice";
 
 import BtnTodoListItem from "@components/btnTodoListItem";
 
-import "./todoListItem.css";
+import "./todoListItem.scss";
 
 // объект с настройками анимации Framer Motion
 const variants = {

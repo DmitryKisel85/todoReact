@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .fa-times {
 	font-size: 24px;
 	position: relative;
@@ -7,6 +9,6 @@
 .fa-plus {
 	display: block;
 	margin-right: 20px;
-	color: var(--input-color);
+	color: $inputColor;
 	font-size: 36px;
 }

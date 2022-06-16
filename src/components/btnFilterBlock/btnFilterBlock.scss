@@ -1,5 +1,5 @@
-@import "@styles/buttons.css";
-@import "@styles/mediaqueries.css";
+@import "@styles/buttons.scss";
+@import "@styles/variables.scss";
 
 .btn-filter {
 	opacity: 0.5;
@@ -12,5 +12,11 @@
 @media (hover: hover) and (pointer: fine) {
 	.btn-filter:hover {
 		opacity: 1;
+	}
+}
+
+@media (max-width: $mobile) {
+	.btn-filter {
+		padding: 5px;
 	}
 }

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import "./btnClearBlock.css";
+import "./btnClearBlock.scss";
 
 const BtnClearBlock = ({ handleClear, children }) => {
 	return (

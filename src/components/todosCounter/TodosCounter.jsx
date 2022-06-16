@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import "./todosCounter.css";
+import "./todosCounter.scss";
 
 const TodosCounter = () => {
 	const todosLength = useSelector((state) => state.todos.todos.length);

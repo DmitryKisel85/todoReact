@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { addTodo } from "@store/todosSlice";
 
-import "./inputTodo.css";
+import "./inputTodo.scss";
 
 const InputTodo = () => {
 	const dispatch = useDispatch();

@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,700");
-@import "./styles/mediaqueries.css";
-
-:root {
-	--text-color: #e7f9ff;
-	--input-color: #46549e;
-}
+@import "@styles/variables.scss";
 
 * {
 	margin: 0;
@@ -16,7 +11,7 @@
 
 body {
 	width: 100%;
-	color: var(--text-color);
+	color: $textColor;
 	display: flex;
 	justify-content: center;
 	padding: 0 10px;
@@ -45,4 +40,10 @@ textarea {
 	flex-direction: column;
 	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media (max-width: $mobile) {
+	.App {
+		width: 100%;
+	}
 }
