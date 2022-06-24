@@ -3,11 +3,13 @@ import { useSelector } from "react-redux";
 import "./todosCounter.scss";
 
 const TodosCounter = () => {
-	const todosLength = useSelector((state) => state.todos.todos.length);
+	// const todosLength = useSelector((state) => state.todos.todos.length);
+	const todos = useSelector((state) => state.todos.todos);
+	const todosLeftToDo = todos.filter((todo) => todo.completed === false).length;
 
 	return (
 		<div className='todo-count'>
-			Things left to do: <span className='todo-number'>{todosLength}</span>
+			Things left to do: <span className='todo-number'>{todosLeftToDo}</span>
 		</div>
 	);
 };
