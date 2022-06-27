@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import { toggleCompleted, editTodo, deleteTodo } from "@store/todosSlice";
 
-import BtnTodoListItem from "@components/btnTodoListItem";
+import Button from "@components/button";
 
 import "./todoListItem.scss";
 
@@ -73,7 +73,7 @@ const TodoListItem = ({ id }) => {
 
 	return (
 		<motion.li className={`todo-item ${completed && "checked"}`} key={id} initial='hidden' animate='visible' exit='hidden' variants={variants} layoutId={id}>
-			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed && "checked"} `} onChange={handleChange} defaultChecked={completed} />
+			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed && "checked"}`} onChange={handleChange} defaultChecked={completed} />
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
 				className='description'
@@ -87,9 +87,19 @@ const TodoListItem = ({ id }) => {
 				onBlur={() => modifyEditing(true)}
 			></textarea>
 
-			{readOnlyState ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />}
+			{readOnlyState ? (
+				<Button className='btn-todolistitem' key='edit' onClick={modifyEditing}>
+					<i className='far fa-edit'></i>
+				</Button>
+			) : (
+				<Button className='btn-todolistitem' key='check' onClick={modifyEditing}>
+					<i className='fas fa-check'></i>
+				</Button>
+			)}
 
-			<BtnTodoListItem handleOperation={handleDelete} iconClass='fas fa-times' />
+			<Button className='btn-todolistitem' onClick={handleDelete}>
+				<i className='fas fa-times'></i>
+			</Button>
 		</motion.li>
 	);
 };

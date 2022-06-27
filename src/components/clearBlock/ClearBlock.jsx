@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { clearAllTodos, clearCompletedTodos } from "@store/todosSlice";
 
-import BtnClearBlock from "@components/btnClearBlock/";
+import Button from "@components/button";
 
 import "./clearBlock.scss";
 
@@ -20,8 +20,12 @@ const ClearBlock = () => {
 
 	return (
 		<div className='clear-block'>
-			<BtnClearBlock handleClear={handleClearAllTodos}>Clear All</BtnClearBlock>
-			<BtnClearBlock handleClear={handleClearCompletedTodos}>Clear Completed</BtnClearBlock>
+			<Button className='btn_generalStyle btn-clear' onClick={handleClearAllTodos}>
+				Clear All
+			</Button>
+			<Button className='btn_generalStyle btn-clear' onClick={handleClearCompletedTodos}>
+				Clear Completed
+			</Button>
 		</div>
 	);
 };

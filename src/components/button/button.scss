@@ -1,0 +1,57 @@
+@import "@styles/variables.scss";
+@import "@styles/iconClasses.scss";
+
+.btn_generalStyle {
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: $textColor;
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+	border-bottom: 1px solid transparent;
+}
+
+.btn-clear:active {
+	transform: translateY(3px);
+}
+
+.btn-filter {
+	opacity: 0.5;
+}
+
+.btn-filter_active {
+	opacity: 1;
+}
+
+.btn-todolistitem {
+	color: $textColor;
+}
+
+// HOVER STYLES
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-clear:hover {
+		outline: 1px solid $textColor;
+	}
+
+	.btn-filter:hover {
+		opacity: 1;
+	}
+
+	.btn-todolistitem:hover {
+		opacity: 1 !important;
+		transform: scale(1.1);
+		transition: all 0.2s ease-out;
+		cursor: pointer;
+	}
+}
+
+// MEDIA STYLES
+
+@media (max-width: $mobile) {
+	.btn-filter {
+		padding: 5px;
+	}
+}

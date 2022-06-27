@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { activeFilterChanged } from "@store/filterSlice";
 
-import BtnFilterBlock from "@components/btnFilterBlock/";
+import Button from "@components/button";
 
 const FilterBlock = () => {
 	const dispatch = useDispatch();
@@ -15,15 +15,15 @@ const FilterBlock = () => {
 
 	return (
 		<div>
-			<BtnFilterBlock active={activeFilter === "all"} handleChangeFilter={handleChangeFilter} filter={"all"}>
+			<Button className={`btn_generalStyle btn-filter ${activeFilter === "all" && "btn-filter_active"}`} onClick={() => handleChangeFilter("all")}>
 				All
-			</BtnFilterBlock>
-			<BtnFilterBlock active={activeFilter === "active"} handleChangeFilter={handleChangeFilter} filter={"active"}>
+			</Button>
+			<Button className={`btn_generalStyle btn-filter ${activeFilter === "active" && "btn-filter_active"}`} onClick={() => handleChangeFilter("active")}>
 				Active
-			</BtnFilterBlock>
-			<BtnFilterBlock active={activeFilter === "completed"} handleChangeFilter={handleChangeFilter} filter={"completed"}>
+			</Button>
+			<Button className={`btn_generalStyle btn-filter ${activeFilter === "completed" && "btn-filter_active"}`} onClick={() => handleChangeFilter("completed")}>
 				Completed
-			</BtnFilterBlock>
+			</Button>
 		</div>
 	);
 };
