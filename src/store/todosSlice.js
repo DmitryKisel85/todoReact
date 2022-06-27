@@ -29,7 +29,7 @@ const todosSlice = createSlice({
 		},
 		clearCompletedTodos: (state, action) => {
 			state.todos = state.todos.filter((todo) => {
-				return todo.completed === false;
+				return !todo.completed;
 			});
 		},
 	},

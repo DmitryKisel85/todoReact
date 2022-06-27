@@ -72,8 +72,8 @@ const TodoListItem = ({ id }) => {
 	};
 
 	return (
-		<motion.li className={`todo-item ${completed ? "checked" : ""}`} key={id} initial='hidden' animate='visible' exit='hidden' variants={variants} layoutId={id}>
-			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed ? "checked" : ""} `} onChange={handleChange} defaultChecked={completed ? true : false} />
+		<motion.li className={`todo-item ${completed && "checked"}`} key={id} initial='hidden' animate='visible' exit='hidden' variants={variants} layoutId={id}>
+			<input type='checkbox' id={`btn-complete-${id}`} className={`btn-complete ${completed && "checked"} `} onChange={handleChange} defaultChecked={completed} />
 			<label htmlFor={`btn-complete-${id}`}></label>
 			<textarea
 				className='description'
@@ -84,7 +84,7 @@ const TodoListItem = ({ id }) => {
 				onDoubleClick={() => modifyEditing(false)}
 				onChange={handleEdit}
 				ref={inputRef}
-				onBlur={() => modifyEditing(true, description)}
+				onBlur={() => modifyEditing(true)}
 			></textarea>
 
 			{readOnlyState ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />}

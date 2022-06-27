@@ -4,7 +4,7 @@ import "./todosCounter.scss";
 
 const TodosCounter = () => {
 	const todos = useSelector((state) => state.todos.todos);
-	const todosLeftToDo = todos.filter((todo) => todo.completed === false).length;
+	const todosLeftToDo = todos.filter((todo) => !todo.completed).length;
 
 	return (
 		<div className='todo-count'>

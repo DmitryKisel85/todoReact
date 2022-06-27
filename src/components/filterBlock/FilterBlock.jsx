@@ -15,13 +15,13 @@ const FilterBlock = () => {
 
 	return (
 		<div>
-			<BtnFilterBlock active={activeFilter === "all" ? true : false} handleChangeFilter={handleChangeFilter} filter={"all"}>
+			<BtnFilterBlock active={activeFilter === "all"} handleChangeFilter={handleChangeFilter} filter={"all"}>
 				All
 			</BtnFilterBlock>
-			<BtnFilterBlock active={activeFilter === "active" ? true : false} handleChangeFilter={handleChangeFilter} filter={"active"}>
+			<BtnFilterBlock active={activeFilter === "active"} handleChangeFilter={handleChangeFilter} filter={"active"}>
 				Active
 			</BtnFilterBlock>
-			<BtnFilterBlock active={activeFilter === "completed" ? true : false} handleChangeFilter={handleChangeFilter} filter={"completed"}>
+			<BtnFilterBlock active={activeFilter === "completed"} handleChangeFilter={handleChangeFilter} filter={"completed"}>
 				Completed
 			</BtnFilterBlock>
 		</div>
