@@ -4,7 +4,7 @@ import "./BtnTodoListItem.scss";
 
 const BtnTodoListItem = ({ handleOperation, iconClass }) => {
 	return (
-		<button className='btn-todolistitem' onClick={handleOperation}>
+		<button key={iconClass} className='btn-todolistitem' onClick={handleOperation}>
 			<i className={iconClass}></i>
 		</button>
 	);

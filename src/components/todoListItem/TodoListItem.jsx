@@ -28,7 +28,7 @@ const TodoListItem = ({ id }) => {
 	const [todo] = useSelector((state) => {
 		return state.todos.todos.filter((todo) => todo.id === id);
 	});
-	const { completed, description } = todo;
+	const { description, completed } = todo;
 
 	// Стейт для изменения аттрибута ReadOnly у каждого туду
 	const [readOnlyState, setReadOnlyState] = useState(true);
@@ -61,7 +61,8 @@ const TodoListItem = ({ id }) => {
 
 	// редактирование туду
 	const handleEdit = (e) => {
-		const updatedValue = e.currentTarget.value;
+		let updatedValue = e.currentTarget.value;
+
 		dispatch(editTodo({ id: id, updatedValue: updatedValue }));
 	};
 
@@ -83,13 +84,10 @@ const TodoListItem = ({ id }) => {
 				onDoubleClick={() => modifyEditing(false)}
 				onChange={handleEdit}
 				ref={inputRef}
-				onBlur={() => modifyEditing(true)}
+				onBlur={() => modifyEditing(true, description)}
 			></textarea>
 
-			{/* {readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />} */}
-
-			{readOnlyState === true ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : null}
-			{readOnlyState === false ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' /> : null}
+			{readOnlyState ? <BtnTodoListItem handleOperation={modifyEditing} iconClass='far fa-edit' /> : <BtnTodoListItem handleOperation={modifyEditing} iconClass='fas fa-check' />}
 
 			<BtnTodoListItem handleOperation={handleDelete} iconClass='fas fa-times' />
 		</motion.li>

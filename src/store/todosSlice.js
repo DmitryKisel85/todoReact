@@ -2,7 +2,6 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
 	todos: [],
-	filteredTodos: [],
 };
 
 const todosSlice = createSlice({

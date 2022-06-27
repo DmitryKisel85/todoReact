@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import "./todosCounter.scss";
 
 const TodosCounter = () => {
-	// const todosLength = useSelector((state) => state.todos.todos.length);
 	const todos = useSelector((state) => state.todos.todos);
 	const todosLeftToDo = todos.filter((todo) => todo.completed === false).length;
 
