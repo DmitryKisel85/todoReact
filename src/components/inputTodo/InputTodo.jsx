@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 // генератор id
@@ -11,17 +11,13 @@ import "./inputTodo.scss";
 const InputTodo = () => {
 	const dispatch = useDispatch();
 
-	// стейт главного инпута туду
-	const [userInput, setUserInput] = useState("");
-
-	// записываем в стейт то, что вводит пользователь
-	const handleChange = (e) => {
-		setUserInput(e.currentTarget.value);
-	};
+	const inputRef = useRef();
 
 	//добавляем туду
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		let userInput = inputRef.current.value;
 
 		// проверка на пустую строку и пробелы
 		if (!userInput || userInput.match(/^[ ]+$/)) return;
@@ -33,12 +29,13 @@ const InputTodo = () => {
 		};
 
 		dispatch(addTodo(newTodo));
-		setUserInput("");
+
+		inputRef.current.value = "";
 	};
 
 	return (
 		<form className='input-wrapper' onSubmit={handleSubmit}>
-			<input type='text' className='input-main' placeholder='What are we going to do?' value={userInput} onChange={handleChange} />
+			<input type='text' className='input-main' placeholder='What are we going to do?' ref={inputRef} autoFocus />
 			<motion.button whileTap={{ scale: 0.95 }} whileHover={{ cursor: "pointer", scale: 1.1, filter: "brightness(1.5)" }} className='btn-add' onClick={handleSubmit}>
 				<i className='fas fa-plus'></i>
 			</motion.button>

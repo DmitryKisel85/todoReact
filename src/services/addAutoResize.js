@@ -1,4 +1,5 @@
 // Функция авторесайза textarea
+
 function addAutoResize() {
 	document.querySelectorAll("[data-autoresize]").forEach(function (element) {
 		element.style.boxSizing = "border-box";

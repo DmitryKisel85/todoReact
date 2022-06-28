@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
+// добавление функции авторесайза туду, в зависимости от кол-ва строк
+import addAutoResize from "@services/addAutoResize";
+
 import { toggleCompleted, editTodo, deleteTodo } from "@store/todosSlice";
 
 import Button from "@components/button";
@@ -25,6 +28,10 @@ const variants = {
 const TodoListItem = ({ id }) => {
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		addAutoResize();
+	}, []);
+
 	const [todo] = useSelector((state) => {
 		return state.todos.todos.filter((todo) => todo.id === id);
 	});
@@ -34,15 +41,20 @@ const TodoListItem = ({ id }) => {
 	const [readOnlyState, setReadOnlyState] = useState(true);
 
 	// Используем useRef и useEffect для установки фокуса на textarea при редактировании туду
-	const inputRef = useRef(null);
+
+	const textAreaRef = useRef(null);
 	useEffect(() => {
-		inputRef.current.focus();
+		textAreaRef.current.focus();
 	}, [readOnlyState]);
 
 	// изменение стейта аттрибута ReadOnly для возможности\невозможности редактирования туду
 	const modifyEditing = (param) => {
 		switch (param) {
 			case true:
+				if (description === "") {
+					dispatch(deleteTodo(id));
+					return;
+				}
 				setReadOnlyState(true);
 				break;
 			case false:
@@ -62,10 +74,8 @@ const TodoListItem = ({ id }) => {
 	// редактирование туду
 	const handleEdit = (e) => {
 		let updatedValue = e.currentTarget.value;
-
 		dispatch(editTodo({ id: id, updatedValue: updatedValue }));
 	};
-
 	// удаление туду
 	const handleDelete = () => {
 		dispatch(deleteTodo(id));
@@ -83,7 +93,7 @@ const TodoListItem = ({ id }) => {
 				value={description}
 				onDoubleClick={() => modifyEditing(false)}
 				onChange={handleEdit}
-				ref={inputRef}
+				ref={textAreaRef}
 				onBlur={() => modifyEditing(true)}
 			></textarea>
 
